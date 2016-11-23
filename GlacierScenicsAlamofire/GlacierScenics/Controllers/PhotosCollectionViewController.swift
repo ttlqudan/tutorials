@@ -14,6 +14,7 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
 
     var photosManager: PhotosManager { return .shared }
 
+    /*
     var largePhotoIndexPath: NSIndexPath? {
         didSet {
             //2
@@ -50,6 +51,7 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
 //        largePhotoIndexPath = largePhotoIndexPath == indexPath ? nil : indexPath
         return false
     }
+ */
 //    // New code
 //    if indexPath == largePhotoIndexPath {
 //    let flickrPhoto = photoForIndexPath(indexPath)
@@ -146,11 +148,11 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
         return photosManager.photos.count
     }
 
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! PhotoCollectionViewCell
-//        cell.configure(with: photo(at: indexPath))
-//        return cell
-//    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! PhotoCollectionViewCell
+        cell.configure(with: photo(at: indexPath))
+        return cell
+    }
 
     func photo(at indexPath: IndexPath) -> Photo {
         let photos = photosManager.photos
@@ -203,13 +205,3 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 
 }
-
-
-//extension PhotosCollectionViewController: UICollectionViewDelegate {
-//    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-////        let url = Photo[indexPath.item]
-////        if UIApplication.sharedApplication().canOpenURL(url) {
-////            UIApplication.sharedApplication().openURL(url)
-////        }
-//    }
-//}
