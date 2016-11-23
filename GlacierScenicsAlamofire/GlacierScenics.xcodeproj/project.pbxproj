@@ -18,6 +18,8 @@
 		9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE110881C5D35060065964E /* PhotosCollectionViewController.swift */; };
 		9BE1108B1C5D35AF0065964E /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1108A1C5D35AF0065964E /* PhotosManager.swift */; };
 		9BE1108D1C5D35E60065964E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1108C1C5D35E60065964E /* Photo.swift */; };
+		E1E9F6A91DE63EDA007CCD0C /* RootClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A81DE63EDA007CCD0C /* RootClass.swift */; };
+		E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6AA1DE63F00007CCD0C /* Media.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		9BE1108C1C5D35E60065964E /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BF761A5A7EAFB80A01E4604C /* Pods-GlacierScenics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlacierScenics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlacierScenics/Pods-GlacierScenics.debug.xcconfig"; sourceTree = "<group>"; };
 		D15D9A47EF2EC7CAEDC8E7AD /* Pods-GlacierScenics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlacierScenics.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlacierScenics/Pods-GlacierScenics.release.xcconfig"; sourceTree = "<group>"; };
+		E1E9F6A81DE63EDA007CCD0C /* RootClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootClass.swift; sourceTree = "<group>"; };
+		E1E9F6AA1DE63F00007CCD0C /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		E9C6DFB44DDE2AFD54CB4679 /* Pods_GlacierScenics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlacierScenics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,7 @@
 		9BE110501C5D27470065964E /* GlacierScenics */ = {
 			isa = PBXGroup;
 			children = (
+				E1E9F6A71DE63EBC007CCD0C /* Model */,
 				9BE110871C5D34F10065964E /* Controllers */,
 				9BE110841C5D2AB50065964E /* Data */,
 				9BE1107F1C5D27610065964E /* Views */,
@@ -125,6 +130,15 @@
 				D15D9A47EF2EC7CAEDC8E7AD /* Pods-GlacierScenics.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E1E9F6A71DE63EBC007CCD0C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1E9F6A81DE63EDA007CCD0C /* RootClass.swift */,
+				E1E9F6AA1DE63F00007CCD0C /* Media.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,8 +268,10 @@
 			files = (
 				9BE1108B1C5D35AF0065964E /* PhotosManager.swift in Sources */,
 				9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */,
+				E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */,
 				9BE1108D1C5D35E60065964E /* Photo.swift in Sources */,
 				9BE110521C5D27470065964E /* AppDelegate.swift in Sources */,
+				E1E9F6A91DE63EDA007CCD0C /* RootClass.swift in Sources */,
 				9BE110821C5D277E0065964E /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

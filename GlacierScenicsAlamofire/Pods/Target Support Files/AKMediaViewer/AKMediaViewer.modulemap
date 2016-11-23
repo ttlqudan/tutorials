@@ -1,0 +1,6 @@
+framework module AKMediaViewer {
+  umbrella header "AKMediaViewer-umbrella.h"
+
+  export *
+  module * { export * }
+}

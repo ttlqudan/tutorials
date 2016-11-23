@@ -4,5 +4,9 @@ use_frameworks!
 target 'GlacierScenics' do
   pod 'Alamofire', '~> 4.0'
   pod 'AlamofireImage', '~> 3.0'
+  pod 'AKMediaViewer'
+  pod 'SwiftyJSON'
+  pod 'ObjectMapper', '~> 2.2'
+  pod 'AlamofireObjectMapper', '~> 4.0'
 end
 
