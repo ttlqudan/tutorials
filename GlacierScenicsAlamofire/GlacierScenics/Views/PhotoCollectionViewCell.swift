@@ -16,6 +16,8 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var captionLabel: UILabel!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var request: Request?
     var photo: Photo!
@@ -54,4 +56,18 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         captionLabel.isHidden = false
     }
 
+    
+    
+    // MARK: - Properties
+    override var isSelected: Bool {
+        didSet {
+            imageView.layer.borderWidth = isSelected ? 10 : 0
+        }
+    }
+    // MARK: - View Life Cycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+//        imageView.layer.borderColor = themeColor.cgColor
+        isSelected = false
+    }
 }

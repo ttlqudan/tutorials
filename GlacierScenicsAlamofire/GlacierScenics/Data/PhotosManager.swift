@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
+// extension 으로 이미 정의된 타입에 새로운 속성이나 메서드를 추가
 extension UInt64 {
 
     func megabytes() -> UInt64 {
@@ -23,6 +24,7 @@ class PhotosManager {
     static let shared = PhotosManager()
 
     private var dataPath: String {
+        // 여기서 url 요청해서 list 받아오기
         return Bundle.main.path(forResource: "GlacierScenics", ofType: "plist")!
     }
 
