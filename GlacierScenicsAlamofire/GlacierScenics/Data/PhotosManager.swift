@@ -30,18 +30,24 @@ class PhotosManager {
     private var dataPath: String {
         // 여기서 url 요청해서 list 받아오기
         
-//        let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA?pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
-        
-        
         let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA"
+//  ?pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+        
+        
+        
+//        let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA"
         //let urlTest = "http://api.androidhive.info/contacts/"
 
         let serverTrustPolicies: [String: ServerTrustPolicy] = [
-//            "test.owltree.us": .pinCertificates(
+            "test.owltree.us": .pinCertificates(
+                certificates: ServerTrustPolicy.certificates(),
+                validateCertificateChain: false,
+                validateHost: true
+                
 //                certificates: ServerTrustPolicy.certificatesInBundle(),
 //                validateCertificateChain: true,
 //                validateHost: true
-//            ),
+            ),
             "insecure.expired-apis.com": .disableEvaluation
         ]
         
@@ -75,7 +81,7 @@ class PhotosManager {
 //                let roolClass = RootClass(value)
 //                print("JSON: \(roolClass)")
             case .failure(let error):
-                print(error)
+                print("error : \(error)")
             }
         }
         
