@@ -31,28 +31,28 @@ class PhotosManager {
         // 여기서 url 요청해서 list 받아오기
         
         let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA"
-//  ?pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+//       let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA?pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
         
-        
+        /*
         
 //        let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA"
-        //let urlTest = "http://api.androidhive.info/contacts/"
+        let url = "http://api.androidhive.info/contacts/"
 
-        let serverTrustPolicies: [String: ServerTrustPolicy] = [
-            "test.owltree.us": .pinCertificates(
-                certificates: ServerTrustPolicy.certificates(),
-                validateCertificateChain: false,
-                validateHost: true
-                
-//                certificates: ServerTrustPolicy.certificatesInBundle(),
-//                validateCertificateChain: true,
+//        let serverTrustPolicies: [String: ServerTrustPolicy] = [
+//            "test.owltree.us": .pinCertificates(
+//                certificates: ServerTrustPolicy.certificates(),
+//                validateCertificateChain: false,
 //                validateHost: true
-            ),
-            "insecure.expired-apis.com": .disableEvaluation
-        ]
+//                
+////                certificates: ServerTrustPolicy.certificatesInBundle(),
+////                validateCertificateChain: true,
+////                validateHost: true
+//            ),
+//            "insecure.expired-apis.com": .disableEvaluation
+//        ]
         
         let sessionManager = SessionManager(
-            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
+//            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
         )
         
 //        let serverTrustPolicy = ServerTrustPolicy.pinCertificates(
@@ -69,10 +69,7 @@ class PhotosManager {
 //            serverTrustPolicyManager: ServerTrustPolicyManager(policies: serverTrustPolicies)
 //        )
         
-        sessionManager.request(url, method: .get
-            , parameters:["pageNo":"0","mode":"RECENT"
-                //,"field":"name,tagid,tagCount,media{thumbnailUrl},isChatOn"
-                ,"access_token":"9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"]).validate().responseJSON { response in
+        sessionManager.request(url).responseJSON { response in
             switch response.result {
             case .success(let value):
                 // let user = User(JSONString: JSONString)
@@ -83,7 +80,7 @@ class PhotosManager {
             case .failure(let error):
                 print("error : \(error)")
             }
-        }
+        }*/
         
         /*
         // https://github.com/tristanhimmelman/AlamofireObjectMapper
@@ -99,6 +96,26 @@ class PhotosManager {
                 }
             }
         }*/
+        
+        
+    //pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+//        Alamofire.request("https://httpbin.org/get").responseJSON { response in
+        let parameters: Parameters = [
+            "pageNo": "0",
+            "mode": "RECENT",
+            "access_token": "9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+        ]
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
+//            print(response.request)  // original URL request
+//            print(response.response) // HTTP URL response
+//            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+            }
+        }
+        
         
         return Bundle.main.path(forResource: "GlacierScenics", ofType: "plist")!
     }

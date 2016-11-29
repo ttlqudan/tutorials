@@ -7,11 +7,14 @@
 //
 
 import UIKit
+//import AKMediaViewer
 
 private let photoCellIdentifier = "PhotoCell"
 
-class PhotosCollectionViewController: UICollectionViewController { //, UICollectionViewDelegate
+class PhotosCollectionViewController: UICollectionViewController { //, AKMediaViewerDelegate {
 
+//    var mediaFocusManager: AKMediaViewerManager?
+//    var statusBarHidden: Bool = false
     var photosManager: PhotosManager { return .shared }
 
     /*
@@ -123,6 +126,14 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
         super.viewDidLoad()
 
         registerCollectionViewCells()
+        
+        // akmedia setting
+//        mediaFocusManager = AKMediaViewerManager.init()
+//        mediaFocusManager!.delegate = self
+//        mediaFocusManager!.elasticAnimation = true
+//        mediaFocusManager!.focusOnPinch = true
+        
+//        mediaViewerManager!.installOnViews(collectionView)     // akmediaviewer
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -170,6 +181,8 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
 //        selectedImage = cellImages[indexPath.row] as String
 //        selectedLabels = cellLabels[indexPath.row] as String
 //        self.performSegueWithIdentifer("showDetail", sender: self)
+        
+        
     }
     
     
@@ -190,6 +203,52 @@ class PhotosCollectionViewController: UICollectionViewController { //, UICollect
         cell?.backgroundColor = UIColor.cyan
     }
 
+    
+    /*
+    // MARK: - <AKMediaViewerDelegate>
+    func parentViewControllerForMediaViewerManager(_ manager: AKMediaViewerManager) -> UIViewController {
+        return self
+    }
+    func mediaViewerManager(_ manager: AKMediaViewerManager,  mediaURLForView view: UIView) -> URL {
+        let index: Int = view.tag - 1
+        //        let name: NSString = mediaNames[index] as NSString
+        //        let url: URL = Bundle.main.url(forResource: name.deletingPathExtension, withExtension: name.pathExtension)!
+        let url: URL = NSURL("")
+        //NSURL("https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/c0.90.720.720/15034587_699600740218245_2566468612646764544_n.jpg?ig_cache_key=MTM5MTc5MjI4NzI0NzI4MDUxMw%3D%3D.2.c")
+        
+        return url
+        //        return "";
+    }
+    func mediaViewerManager(_ manager: AKMediaViewerManager, titleForView view: UIView) -> String {
+        let url: URL = mediaViewerManager(manager, mediaURLForView: view)
+        let fileExtension: String = url.pathExtension.lowercased()
+        let isVideo: Bool = fileExtension == "mp4" || fileExtension == "mov"
+        //TODO another message
+        return (isVideo ? "Videos are also supported." : "Of course, you can zoom in and out on the image.")
+    }
+    func mediaViewerManagerWillAppear(_ manager: AKMediaViewerManager) {
+        /*
+         *  Call here setDefaultDoneButtonText, if you want to change the text and color of default "Done" button
+         *  eg: mediaFocusManager!.setDefaultDoneButtonText("Panda", withColor: UIColor.purple)
+         */
+        self.statusBarHidden = true
+        if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    func mediaViewerManagerWillDisappear(_ mediaFocusManager: AKMediaViewerManager) {
+        self.statusBarHidden = false
+        if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
+            self.setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    //    override open var prefersStatusBarHidden: Bool {
+    //        get {
+    //            return self.statusBarHidden
+    //        }
+    //    }
+    */
+    
 }
 
 //MARK: - CollectionView Flow Layout
