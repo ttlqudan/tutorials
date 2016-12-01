@@ -161,7 +161,7 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! PhotoCollectionViewCell
         cell.configure(with: photo(at: indexPath))
-        cell.tag = indexPath.row
+        cell.imageView.tag = indexPath.row
 
         mediaFocusManager!.installOnView(cell.imageView)
         return cell
@@ -214,14 +214,13 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
         return self
     }
     func mediaViewerManager(_ manager: AKMediaViewerManager,  mediaURLForView view: UIView) -> URL {
-        let index: Int = view.tag - 1
+        let index: Int = view.tag
         //        let name: NSString = mediaNames[index] as NSString
         //        let url: URL = Bundle.main.url(forResource: name.deletingPathExtension, withExtension: name.pathExtension)!
 //        let url: URL = NSURL("")
-        var url = URL(string:"https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/c0.90.720.720/15034587_699600740218245_2566468612646764544_n.jpg?ig_cache_key=MTM5MTc5MjI4NzI0NzI4MDUxMw%3D%3D.2.c")
-        
+
         print("mediaUrlForView index : #\(index)")
-//        let url = photo(at: IndexPath(index : index)).url
+        let url = URL(string: photo(at: IndexPath(index : index)).url)
         //return URL(string: url)!
         return url!
         //        return "";
