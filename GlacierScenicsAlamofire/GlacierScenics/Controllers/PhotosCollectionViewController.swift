@@ -220,7 +220,7 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
 //        let url: URL = NSURL("")
 
         print("mediaUrlForView index : #\(index)")
-        let url = URL(string: photo(at: IndexPath(index : index)).url)
+        let url = URL(string: photosManager.photos[index].url)
         //return URL(string: url)!
         return url!
         //        return "";
