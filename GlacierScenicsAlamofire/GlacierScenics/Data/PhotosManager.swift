@@ -103,6 +103,7 @@ class PhotosManager {
         let parameters: Parameters = [
             "pageNo": "0",
             "mode": "RECENT",
+            "field": "name,tagid,tagCount,media{thumbnailUrl},isChatOn",
             "access_token": "9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
         ]
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
@@ -115,7 +116,6 @@ class PhotosManager {
                 print("JSON: \(JSON)")
             }
         }
-        
         
         return Bundle.main.path(forResource: "GlacierScenics", ofType: "plist")!
     }

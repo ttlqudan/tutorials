@@ -7,13 +7,13 @@
 //
 
 import UIKit
-//import AKMediaViewer
+import AKMediaViewer
 
 private let photoCellIdentifier = "PhotoCell"
 
-class PhotosCollectionViewController: UICollectionViewController { //, AKMediaViewerDelegate {
+class PhotosCollectionViewController: UICollectionViewController , AKMediaViewerDelegate {
 
-//    var mediaFocusManager: AKMediaViewerManager?
+    var mediaFocusManager: AKMediaViewerManager?
 //    var statusBarHidden: Bool = false
     var photosManager: PhotosManager { return .shared }
 
@@ -128,12 +128,11 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
         registerCollectionViewCells()
         
         // akmedia setting
-//        mediaFocusManager = AKMediaViewerManager.init()
-//        mediaFocusManager!.delegate = self
-//        mediaFocusManager!.elasticAnimation = true
-//        mediaFocusManager!.focusOnPinch = true
+        mediaFocusManager = AKMediaViewerManager.init()
+        mediaFocusManager!.delegate = self
+        mediaFocusManager!.elasticAnimation = true
+        mediaFocusManager!.focusOnPinch = true
         
-//        mediaViewerManager!.installOnViews(collectionView)     // akmediaviewer
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -162,11 +161,15 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentifier, for: indexPath) as! PhotoCollectionViewCell
         cell.configure(with: photo(at: indexPath))
+        cell.tag = indexPath.row
+
+        mediaFocusManager!.installOnView(cell.imageView)
         return cell
     }
 
     func photo(at indexPath: IndexPath) -> Photo {
         let photos = photosManager.photos
+        print("photo at index : #\(indexPath.row)")
         return photos[indexPath.row]
     }
     
@@ -177,7 +180,8 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
         // handle tap events
         print("You selected cell #\(indexPath.item)!" + " row: #\(indexPath.row)")
 
-        
+    
+        //mediaViewerManager.startFocusingView(mediaView)
 //        selectedImage = cellImages[indexPath.row] as String
 //        selectedLabels = cellLabels[indexPath.row] as String
 //        self.performSegueWithIdentifer("showDetail", sender: self)
@@ -204,7 +208,7 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
     }
 
     
-    /*
+    
     // MARK: - <AKMediaViewerDelegate>
     func parentViewControllerForMediaViewerManager(_ manager: AKMediaViewerManager) -> UIViewController {
         return self
@@ -213,10 +217,13 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
         let index: Int = view.tag - 1
         //        let name: NSString = mediaNames[index] as NSString
         //        let url: URL = Bundle.main.url(forResource: name.deletingPathExtension, withExtension: name.pathExtension)!
-        let url: URL = NSURL("")
-        //NSURL("https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/c0.90.720.720/15034587_699600740218245_2566468612646764544_n.jpg?ig_cache_key=MTM5MTc5MjI4NzI0NzI4MDUxMw%3D%3D.2.c")
+//        let url: URL = NSURL("")
+        var url = URL(string:"https://scontent.cdninstagram.com/t51.2885-15/s150x150/e15/c0.90.720.720/15034587_699600740218245_2566468612646764544_n.jpg?ig_cache_key=MTM5MTc5MjI4NzI0NzI4MDUxMw%3D%3D.2.c")
         
-        return url
+        print("mediaUrlForView index : #\(index)")
+//        let url = photo(at: IndexPath(index : index)).url
+        //return URL(string: url)!
+        return url!
         //        return "";
     }
     func mediaViewerManager(_ manager: AKMediaViewerManager, titleForView view: UIView) -> String {
@@ -231,23 +238,23 @@ class PhotosCollectionViewController: UICollectionViewController { //, AKMediaVi
          *  Call here setDefaultDoneButtonText, if you want to change the text and color of default "Done" button
          *  eg: mediaFocusManager!.setDefaultDoneButtonText("Panda", withColor: UIColor.purple)
          */
-        self.statusBarHidden = true
+//        self.statusBarHidden = true
         if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
     func mediaViewerManagerWillDisappear(_ mediaFocusManager: AKMediaViewerManager) {
-        self.statusBarHidden = false
+//        self.statusBarHidden = false
         if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
-    //    override open var prefersStatusBarHidden: Bool {
-    //        get {
-    //            return self.statusBarHidden
-    //        }
-    //    }
-    */
+//        override open var prefersStatusBarHidden: Bool {
+//            get {
+//                return self.statusBarHidden
+//            }
+//        }
+    
     
 }
 
