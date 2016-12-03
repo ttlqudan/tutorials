@@ -12,7 +12,7 @@ import AlamofireImage
 // https://github.com/Ahmed-Ali/JSONExport
 // https://github.com/SwiftyJSON/SwiftyJSON#work-with-alamofire
 import SwiftyJSON
-
+import AlamofireObjectMapper    // https://github.com/tristanhimmelman/AlamofireObjectMapper
 
 // extension 으로 이미 정의된 타입에 새로운 속성이나 메서드를 추가
 extension UInt64 {
@@ -82,30 +82,38 @@ class PhotosManager {
             }
         }*/
         
-        /*
-        // https://github.com/tristanhimmelman/AlamofireObjectMapper
-        Alamofire.request(url).responseObject { (response: DataResponse<RootClass>) in
-            
-            let weatherResponse = response.result.value
-            print(weatherResponse?.location)
-            
-            if let threeDayForecast = weatherResponse?.threeDayForecast {
-                for forecast in threeDayForecast {
-                    print(forecast.day)
-                    print(forecast.temperature)
-                }
-            }
-        }*/
         
-        
-    //pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
-//        Alamofire.request("https://httpbin.org/get").responseJSON { response in
         let parameters: Parameters = [
             "pageNo": "0",
             "mode": "RECENT",
             "field": "name,tagid,tagCount,media{thumbnailUrl},isChatOn",
             "access_token": "9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
         ]
+        
+        // https://github.com/tristanhimmelman/AlamofireObjectMapper
+        Alamofire.request(url, method: .get, parameters: parameters).responseArray { (response: DataResponse<[RootClass]>) in
+            
+            
+            let tagArray = response.result.value
+            
+            if let tagArray = tagArray {
+                for tag in tagArray {
+                    print(tag.name!)
+                    print(tag.media?.thumbnailUrl!)
+                }
+            }
+            
+//            let tagResponseArray = response.result.value
+//            print(weatherResponse?.name)
+////            let threeDayForecast = weatherResponse?.media?.thumbnailUrl
+//            print(weatherResponse?.media?.thumbnailUrl)
+            
+        }
+        
+        
+    //pageNo=0&mode=RECENT&field=name,tagid,tagCount,media{thumbnailUrl},isChatOn&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+//        Alamofire.request("https://httpbin.org/get").responseJSON { response in
+        
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
 //            print(response.request)  // original URL request
 //            print(response.response) // HTTP URL response
@@ -114,7 +122,10 @@ class PhotosManager {
             
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
+//                let root = RootClass(JSONString: JSON)
+                
             }
+            
         }
         
         return Bundle.main.path(forResource: "GlacierScenics", ofType: "plist")!
