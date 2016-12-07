@@ -10,10 +10,21 @@ struct Photo {
 
     let name: String
     let url: String
+    let isChatOn : Bool
+    let tagCount : Int
+    let tagId : Int
 
-    init(info: [String: Any]) {
-        self.name = info["name"] as! String
-        self.url = info["imageURL"] as! String
+//    init(info: [String: Any]) {
+//        self.name = info["name"] as! String
+//        self.url = info["imageURL"] as! String
+//    }
+
+    init(name : String, url : String, isChatOn : Bool, tagCount : Int, tagId : Int ){
+        self.name = name
+        self.url = url
+        self.isChatOn = isChatOn
+        self.tagCount = tagCount
+        self.tagId = tagId
     }
 
 }
