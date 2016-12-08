@@ -146,7 +146,7 @@ extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewSize = view.bounds.size
         let spacing: CGFloat = 0.5
-        let width = (viewSize.width / 2) - spacing
+        let width = (viewSize.width / 3) - spacing * 2
         let height = (viewSize.width / 3) - spacing
         return CGSize(width: width, height: height)
     }
