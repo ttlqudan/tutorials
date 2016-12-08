@@ -14,19 +14,11 @@ private let photoCellIdentifier = "PhotoCell"
 class PhotosCollectionViewController: UICollectionViewController , AKMediaViewerDelegate, PhotoUrlDelegate {
 
     var mediaFocusManager: AKMediaViewerManager?
-//    var statusBarHidden: Bool = false
+    var statusBarHidden: Bool = false
     var photosManager: PhotosManager { return .shared }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
-//    static func refresh() {
-//        OperationQueue.main.addOperation(collectionView.reloadData)
-//    }
 
     //MARK: - View Controller Lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,23 +42,18 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     
     // delegate call (for update collection view)
     func finishedDownloading(photos: [Photo]) {
-//        dispatch_get_main_queue().asynchronously(execute: { () -> Void in
-        self.collectionView?.reloadData()
-        DispatchQueue.main.async {
-            print("async cnt : \(self.photosManager.photos.count)")
+        DispatchQueue.main.async {  // 메인 스레드 지금은 없어도 됨.
             self.collectionView?.reloadData()
         }
     }
 
     //MARK: - Collection View Setup
-
     public func registerCollectionViewCells() {
         let nib = UINib(nibName: "PhotoCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: photoCellIdentifier)
     }
 
     // MARK: - UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -119,48 +106,41 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     func parentViewControllerForMediaViewerManager(_ manager: AKMediaViewerManager) -> UIViewController {
         return self
     }
+    
     func mediaViewerManager(_ manager: AKMediaViewerManager,  mediaURLForView view: UIView) -> URL {
         let index: Int = view.tag
-        
-//        print("mediaUrlForView index : #\(index)")
         let url = URL(string: photosManager.photos[index].url)
-        
         return url!
     }
     func mediaViewerManager(_ manager: AKMediaViewerManager, titleForView view: UIView) -> String {
-        let url: URL = mediaViewerManager(manager, mediaURLForView: view)
-        let fileExtension: String = url.pathExtension.lowercased()
-        let isVideo: Bool = fileExtension == "mp4" || fileExtension == "mov"
-        //TODO another message
-        return (isVideo ? "Videos are also supported." : "Of course, you can zoom in and out on the image.")
+        return photosManager.photos[view.tag].name
     }
     func mediaViewerManagerWillAppear(_ manager: AKMediaViewerManager) {
         /*
          *  Call here setDefaultDoneButtonText, if you want to change the text and color of default "Done" button
          *  eg: mediaFocusManager!.setDefaultDoneButtonText("Panda", withColor: UIColor.purple)
          */
-//        self.statusBarHidden = true
+        self.statusBarHidden = true
         if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
     func mediaViewerManagerWillDisappear(_ mediaFocusManager: AKMediaViewerManager) {
-//        self.statusBarHidden = false
+        self.statusBarHidden = false
         if (self.responds(to: #selector(UIViewController.setNeedsStatusBarAppearanceUpdate))) {
             self.setNeedsStatusBarAppearanceUpdate()
         }
     }
-//    override open var prefersStatusBarHidden: Bool {
-//        get {
-//            return self.statusBarHidden
-//        }
-//    }
     
+    override open var prefersStatusBarHidden: Bool {
+        get {
+            return self.statusBarHidden
+        }
+    }
     
 }
 
 //MARK: - CollectionView Flow Layout
-
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
