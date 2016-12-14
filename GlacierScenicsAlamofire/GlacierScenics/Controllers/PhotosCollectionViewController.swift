@@ -16,7 +16,6 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     var mediaFocusManager: AKMediaViewerManager?
     var statusBarHidden: Bool = false
     var photosManager: PhotosManager { return .shared }
-    
 
     //MARK: - View Controller Lifecycle
     override func viewDidLoad() {
@@ -44,6 +43,7 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     func finishedDownloading(photos: [Photo]) {
         DispatchQueue.main.async {  // 메인 스레드 지금은 없어도 됨.
             self.collectionView?.reloadData()
+            self.photosManager.reachedEndOfItems = false;    // load 할께 끝났는지 체크는 ? (무한 로딩 방지 필요)
         }
     }
 
@@ -135,6 +135,25 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
     override open var prefersStatusBarHidden: Bool {
         get {
             return self.statusBarHidden
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height)) {
+            //reach bottom
+            print("end")
+            photosManager.loadPicture()
+        }
+        
+        if (scrollView.contentOffset.y < 0){
+            //reach top
+            print("top")
+        }
+        
+        if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y < (scrollView.contentSize.height - scrollView.frame.size.height)){
+            //not top and not bottom
+            print("no top or end")
         }
     }
     
