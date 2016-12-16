@@ -1,0 +1,16 @@
+1. 방문자 목록 (/users/{userId}/visitors/{pageNo})
+https://test.owltree.us/users/U15858C3C6CBAP6D0F61CA/visitors/0?access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b
+
+1.1 위 방문자에서 "type":"HUMAN" 일 때, 방문한 유저 프로필 보기 (/users/{userId})
+https://test.owltree.us/users/U15858C3C6CBAP6D0F61CA?access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b
+
+1.2 유저의 media(사진,동영상)목록을 가져오기. (/users/{userId}/media)
+https://test.owltree.us/users/U15858C3C6CBAP6D0F61CA/media?pageNo=0&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b
+
+1.3 위 방문자에서 "type":"TAG" 일 때, 상세 태그방 목록 보기 (/tags/{tagId})
+https://test.owltree.us/tags/1599?pageNo=0&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b
+
+
+2. 대화 목록 (/users/{userId}/roomchat), 각 대화방의 latestTs 이후의 마지막 대화 목록을 얻는다.
+https://test.owltree.us/users/U15858C3C6CBAP6D0F61CA/roomchat?latestTs=0&access_token=9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b
+
