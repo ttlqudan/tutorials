@@ -35,40 +35,8 @@ class PhotosManager {
     // a flag for when all database items have already been loaded
     var reachedEndOfItems = false
     
-    private var dataPath: String {
-        
-        let url = "https://test.owltree.us/summarytags/U15858C3C6CBAP6D0F61CA"
-        
-        let parameters: Parameters = [
-            "pageNo": "0",
-            "mode": "RECENT",
-            "field": "name,tagid,tagCount,media{thumbnailUrl},isChatOn",
-            "access_token": "9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
-        ]
-        
-        // https://github.com/tristanhimmelman/AlamofireObjectMapper
-        Alamofire.request(url, method: .get, parameters: parameters).responseArray { (response: DataResponse<[RootClass]>) in
-            
-            let tagArray = response.result.value
-            
-            if let tagArray = tagArray {
-                for tag in tagArray {
-                    print(tag.name!)
-                    print(tag.media?.thumbnailUrl!)
-                }
-            }
-        }
-        return Bundle.main.path(forResource: "GlacierScenics", ofType: "plist")!
-    }
-
     lazy var photos: [Photo] = {
         var photos = [Photo]()
-        
-//        guard let data = NSArray(contentsOfFile: self.dataPath) as? [[String: Any]] else { return photos }
-//        for info in data {
-//            let photo = Photo(info: info)
-//            photos.append(photo)
-//        }
         
         self.loadPicture()
         
@@ -98,7 +66,7 @@ class PhotosManager {
         self.pageNo += 1 // 다음 호출 시 다음 페이지 호출 할 준비
         
         // https://github.com/tristanhimmelman/AlamofireObjectMapper
-        Alamofire.request(url, method: .get, parameters: parameters).responseArray { (response: DataResponse<[RootClass]>) in
+        Alamofire.request(url, method: .get, parameters: parameters).responseArray { (response: DataResponse<[Tag]>) in
             
             guard response.result.isSuccess else {
                 print("Error while request : \(response.result.error)")

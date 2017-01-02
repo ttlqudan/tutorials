@@ -14,6 +14,7 @@ class VisitorCell: UITableViewCell {
     
     @IBOutlet weak var VisitorLable: UILabel!
 //    @IBOutlet weak var VisitorButton: UIButton!
+    @IBOutlet weak var VisitDateLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

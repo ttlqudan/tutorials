@@ -7,20 +7,22 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
+import AlamofireObjectMapper
 
 class VisitorController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var Titles = ["One", "Two", "Three", "Four", "Five"]
+    var visitors : [Visitor] = []
+    var pageNo : Int = 0
     
     @IBOutlet weak var tableview: UITableView!
- 
-    // label에 들어갈 string과 assets에 저장된 이미지 이름 배열
-//    let menus = ["swift","tableview","example"]
-//    let images = ["dog1","dog2","dog3"]
  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        loadTag()
         
         self.tableview.dataSource = self
         self.tableview.delegate = self
@@ -29,16 +31,53 @@ class VisitorController : UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
+    func loadTag() {
+        
+        let url = "https://test.owltree.us/users/U15858C3C6CBAP6D0F61CA/visitors/0"
+        
+        let parameters: Parameters = [
+            "access_token": "9cd741d9-10a2-4bc7-955c-3dc1b2ddf60b"
+        ]
+        
+        Alamofire.request(url, method: .get, parameters: parameters).responseArray { (response: DataResponse<[Visitor]>) in
+            
+            guard response.result.isSuccess else {
+                print("Error while request : \(response.result.error)")
+                return
+            }
+            
+            let visitorArray = response.result.value
+            if let visitorArray = visitorArray {
+                for visitor in visitorArray {
+                    print("visitor name: " + (visitor.user?.name!)!)
+                    self.visitors.append(visitor)
+                }
+            }
+            self.tableview.reloadData()
+        }
+        self.pageNo += 1 // 다음 호출 시 다음 페이지 호출 할 준비
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Titles.count
+        return visitors.count
+    }
+    
+    func dayStringFromTime(unixTime: Double) -> String {
+        let date = NSDate(timeIntervalSince1970: unixTime)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy. MM. dd a hh:mm"
+        //dateFormatter.timeZone = NSTimeZone() as TimeZone!
+        return dateFormatter.string(from: date as Date)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VisitorCell", for: indexPath) as! VisitorCell
-        cell.VisitorLable.text = Titles[indexPath.row]
-        cell.VisitorImage.image =  UIImage(named: Titles[indexPath.row])
-//        cell.imageView?.image = UIImage(named: Titles[indexPath.row])
+        cell.VisitorLable.text = visitors[indexPath.row].user?.name;
+        cell.VisitDateLabel.text = dayStringFromTime(unixTime: Double(visitors[indexPath.row].regDt!/1000));
+        
+        let url = URL(string: (visitors[indexPath.row].user?.picture) ?? "http://www.apple.com/euro/ios/ios8/a/generic/images/og.png")
+        cell.imageView?.af_setImage(withURL: url!)
+        
         return cell
     }
     
@@ -49,31 +88,23 @@ class VisitorController : UIViewController, UITableViewDelegate, UITableViewData
     
 }
 
-
-/*
-// tableview의 datasource와 delegate 등록
-extension VisitorController: UITableViewDataSource{
-    
-
-    
-    // table row 갯수 (menu 배열의 갯수만큼)
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menus.count
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+            }
+            }.resume()
     }
-    
-    // 각 row 마다 데이터 세팅.
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        // 첫 번째 인자로 등록한 identifier, cell은 as 키워드로 앞서 만든 custom cell class화 해준다.
-        let cell = tableview.dequeueReusableCellWithIdentifier("VisitorCell", forIndexPath: indexPath) as! VisitorCell
-        
-        // 위 작업을 마치면 커스텀 클래스의 outlet을 사용할 수 있다.
-        cell.tvLabel.text = menus[indexPath.row]
-        cell.tvImageView.image = UIImage(named: images[indexPath.row])
-        
-        return cell
+    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
     }
 }
-
-extension VisitorController: UITableViewDelegate{
-    
-}*/

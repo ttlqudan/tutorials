@@ -16,7 +16,7 @@ import Foundation
 import ObjectMapper
 
 
-class RootClass : NSObject, NSCoding, Mappable{
+class Tag : NSObject, NSCoding, Mappable{
     
     var isChatOn : Int?
     var media : Media?
@@ -26,7 +26,7 @@ class RootClass : NSObject, NSCoding, Mappable{
     
     
     class func newInstance(map: Map) -> Mappable?{
-        return RootClass()
+        return Tag()
     }
     required init?(map: Map){}
     private override init(){}
