@@ -20,6 +20,7 @@
 		9BE1108D1C5D35E60065964E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1108C1C5D35E60065964E /* Photo.swift */; };
 		E14D36F31E115F4D009BC930 /* VisitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D36F21E115F4D009BC930 /* VisitorController.swift */; };
 		E14D36F51E116A12009BC930 /* VisitorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D36F41E116A12009BC930 /* VisitorCell.swift */; };
+		E17CC6161E1D530A00808163 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17CC6151E1D530A00808163 /* LoginController.swift */; };
 		E189E1EB1E1546620029B3A0 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EA1E1546620029B3A0 /* Visitor.swift */; };
 		E189E1ED1E15467D0029B3A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EC1E15467D0029B3A0 /* User.swift */; };
 		E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A81DE63EDA007CCD0C /* Tag.swift */; };
@@ -43,6 +44,8 @@
 		D15D9A47EF2EC7CAEDC8E7AD /* Pods-GlacierScenics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlacierScenics.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlacierScenics/Pods-GlacierScenics.release.xcconfig"; sourceTree = "<group>"; };
 		E14D36F21E115F4D009BC930 /* VisitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorController.swift; sourceTree = "<group>"; };
 		E14D36F41E116A12009BC930 /* VisitorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorCell.swift; sourceTree = "<group>"; };
+		E15F484B1E1E7FE700385A02 /* GlacierScenics.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GlacierScenics.entitlements; sourceTree = "<group>"; };
+		E17CC6151E1D530A00808163 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/LoginController.swift; sourceTree = "<group>"; };
 		E189E1EA1E1546620029B3A0 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		E189E1EC1E15467D0029B3A0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1E9F6A81DE63EDA007CCD0C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		9BE110501C5D27470065964E /* GlacierScenics */ = {
 			isa = PBXGroup;
 			children = (
+				E15F484B1E1E7FE700385A02 /* GlacierScenics.entitlements */,
 				E1E9F6A71DE63EBC007CCD0C /* Model */,
 				9BE110871C5D34F10065964E /* Controllers */,
 				9BE110841C5D2AB50065964E /* Data */,
@@ -129,6 +133,7 @@
 			children = (
 				9BE110881C5D35060065964E /* PhotosCollectionViewController.swift */,
 				E14D36F21E115F4D009BC930 /* VisitorController.swift */,
+				E17CC6151E1D530A00808163 /* LoginController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -188,7 +193,13 @@
 				TargetAttributes = {
 					9BE1104D1C5D27470065964E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = HAB94T872M;
 						LastSwiftMigration = 0810;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -279,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE1108B1C5D35AF0065964E /* PhotosManager.swift in Sources */,
+				E17CC6161E1D530A00808163 /* LoginController.swift in Sources */,
 				E14D36F51E116A12009BC930 /* VisitorCell.swift in Sources */,
 				9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */,
 				E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */,
@@ -409,10 +421,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GlacierScenics/GlacierScenics.entitlements;
+				DEVELOPMENT_TEAM = HAB94T872M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GlacierScenics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddkramer.GlacierScenics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owltree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -427,10 +445,16 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = GlacierScenics/GlacierScenics.entitlements;
+				DEVELOPMENT_TEAM = HAB94T872M;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GlacierScenics/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.toddkramer.GlacierScenics;
+				PRODUCT_BUNDLE_IDENTIFIER = com.owltree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

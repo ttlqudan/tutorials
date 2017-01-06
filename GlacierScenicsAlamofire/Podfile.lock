@@ -8,6 +8,18 @@ PODS:
     - Alamofire (~> 4.0)
     - ObjectMapper (~> 2.0)
   - ASBPlayerScrubbing (0.1)
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - FBSDKCoreKit (4.16.1):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.16.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.17.0):
+    - FBSDKCoreKit
   - ObjectMapper (2.2.1)
   - SwiftyJSON (3.1.3)
 
@@ -16,6 +28,9 @@ DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireImage (~> 3.0)
   - AlamofireObjectMapper (~> 4.0)
+  - FBSDKCoreKit (~> 4.16.0)
+  - FBSDKLoginKit (~> 4.16.0)
+  - FBSDKShareKit
   - ObjectMapper (~> 2.2)
   - SwiftyJSON
 
@@ -25,9 +40,13 @@ SPEC CHECKSUMS:
   AlamofireImage: 6594aa1139a67dcd36cde6da79ea4e5b318e60fb
   AlamofireObjectMapper: 9faa3ce5a240efda1b209009a2d6e1e949227abc
   ASBPlayerScrubbing: 0fc5e76aad6fdbcf14380734fb7f2c127cd28b66
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  FBSDKCoreKit: 6feac4e8921ccd7afa83fb1df6291dc6eec42c7c
+  FBSDKLoginKit: 469a56cebe2e1ed62b1621d0b155970fd6aac2d8
+  FBSDKShareKit: 9b573d03fbee36cbaf42d5bb1f2bc019e0d72347
   ObjectMapper: 41e43e1a89f8060ef5ea5d04ba852e269a621d68
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
 
-PODFILE CHECKSUM: afa3029c2d8c638ac2d06606920eb22edf766a93
+PODFILE CHECKSUM: a1eab9f412423e8c163434b708cf8e604aa44b22
 
 COCOAPODS: 1.1.1
