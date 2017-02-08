@@ -23,6 +23,10 @@
 		E17CC6161E1D530A00808163 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17CC6151E1D530A00808163 /* LoginController.swift */; };
 		E189E1EB1E1546620029B3A0 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EA1E1546620029B3A0 /* Visitor.swift */; };
 		E189E1ED1E15467D0029B3A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EC1E15467D0029B3A0 /* User.swift */; };
+		E1BB165C1E4B60220007AE6D /* FollowUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB165B1E4B60220007AE6D /* FollowUserView.swift */; };
+		E1BB165E1E4B63050007AE6D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB165D1E4B63050007AE6D /* ProfileView.swift */; };
+		E1BB16601E4B6F7D0007AE6D /* FollowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB165F1E4B6F7D0007AE6D /* FollowData.swift */; };
+		E1BB16621E4B70BB0007AE6D /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BB16611E4B70BB0007AE6D /* Follow.swift */; };
 		E1C4C7511E2E6D1B00AFBD4B /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4C7501E2E6D1B00AFBD4B /* LoginToken.swift */; };
 		E1C4C7531E2E751700AFBD4B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4C7521E2E751700AFBD4B /* KeyChain.swift */; };
 		E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A81DE63EDA007CCD0C /* Tag.swift */; };
@@ -50,6 +54,10 @@
 		E17CC6151E1D530A00808163 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/LoginController.swift; sourceTree = "<group>"; };
 		E189E1EA1E1546620029B3A0 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		E189E1EC1E15467D0029B3A0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1BB165B1E4B60220007AE6D /* FollowUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowUserView.swift; sourceTree = "<group>"; };
+		E1BB165D1E4B63050007AE6D /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E1BB165F1E4B6F7D0007AE6D /* FollowData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowData.swift; sourceTree = "<group>"; };
+		E1BB16611E4B70BB0007AE6D /* Follow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
 		E1C4C7501E2E6D1B00AFBD4B /* LoginToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
 		E1C4C7521E2E751700AFBD4B /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		E1E9F6A81DE63EDA007CCD0C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -118,6 +126,8 @@
 				9BE110801C5D277E0065964E /* PhotoCollectionViewCell.swift */,
 				9BE110811C5D277E0065964E /* PhotoCollectionViewCell.xib */,
 				E14D36F41E116A12009BC930 /* VisitorCell.swift */,
+				E1BB165B1E4B60220007AE6D /* FollowUserView.swift */,
+				E1BB165D1E4B63050007AE6D /* ProfileView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -160,6 +170,8 @@
 				E1E9F6AA1DE63F00007CCD0C /* Media.swift */,
 				E189E1EA1E1546620029B3A0 /* Visitor.swift */,
 				E189E1EC1E15467D0029B3A0 /* User.swift */,
+				E1BB165F1E4B6F7D0007AE6D /* FollowData.swift */,
+				E1BB16611E4B70BB0007AE6D /* Follow.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -299,11 +311,15 @@
 				E17CC6161E1D530A00808163 /* LoginController.swift in Sources */,
 				E14D36F51E116A12009BC930 /* VisitorCell.swift in Sources */,
 				9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */,
+				E1BB165C1E4B60220007AE6D /* FollowUserView.swift in Sources */,
 				E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */,
 				E1C4C7511E2E6D1B00AFBD4B /* LoginToken.swift in Sources */,
+				E1BB16601E4B6F7D0007AE6D /* FollowData.swift in Sources */,
 				9BE1108D1C5D35E60065964E /* Photo.swift in Sources */,
+				E1BB165E1E4B63050007AE6D /* ProfileView.swift in Sources */,
 				9BE110521C5D27470065964E /* AppDelegate.swift in Sources */,
 				E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */,
+				E1BB16621E4B70BB0007AE6D /* Follow.swift in Sources */,
 				9BE110821C5D277E0065964E /* PhotoCollectionViewCell.swift in Sources */,
 				E189E1EB1E1546620029B3A0 /* Visitor.swift in Sources */,
 				E1C4C7531E2E751700AFBD4B /* KeyChain.swift in Sources */,

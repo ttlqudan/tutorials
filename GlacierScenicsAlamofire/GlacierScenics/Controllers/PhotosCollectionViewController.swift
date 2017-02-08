@@ -39,10 +39,6 @@ class PhotosCollectionViewController: UICollectionViewController , AKMediaViewer
         collectionView?.collectionViewLayout.invalidateLayout()
     }
     
-    // 이걸로 다른 뷰에서 값을 전달 받을 수 있음
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//    }
-    
     // delegate call (for update collection view)
     func finishedDownloading(photos: [Photo]) {
         DispatchQueue.main.async {  // 메인 스레드 지금은 없어도 됨.
