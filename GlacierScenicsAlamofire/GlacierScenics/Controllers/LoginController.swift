@@ -45,7 +45,30 @@ class LoginController: UIViewController {
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
                     print(result!)
+                    /*
+                     {
+                     email = "ttlqudan@naver.com";
+                     "first_name" = ByungMoo;
+                     id = 1398682960176966;
+                     "last_name" = Ahn;
+                     name = "ByungMoo Ahn";
+                     picture =     {
+                     data =         {
+                     "is_silhouette" = 0;
+                     url = "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/12647214_1098980683480530_8204966444156768974_n.jpg?oh=259577a8f33533eba9142924072552d0&oe=591CAE4E";
+                     };
+                     };
+                     }
+ */
                     print(self.dict)
+                    /*
+                     ["picture": {
+                     data =     {
+                     "is_silhouette" = 0;
+                     url = "https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/12647214_1098980683480530_8204966444156768974_n.jpg?oh=259577a8f33533eba9142924072552d0&oe=591CAE4E";
+                     };
+                     }, "name": ByungMoo Ahn, "last_name": Ahn, "email": ttlqudan@naver.com, "id": 1398682960176966, "first_name": ByungMoo]
+ */
                 }
             })
         }

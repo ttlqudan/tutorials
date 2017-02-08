@@ -23,6 +23,8 @@
 		E17CC6161E1D530A00808163 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17CC6151E1D530A00808163 /* LoginController.swift */; };
 		E189E1EB1E1546620029B3A0 /* Visitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EA1E1546620029B3A0 /* Visitor.swift */; };
 		E189E1ED1E15467D0029B3A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E189E1EC1E15467D0029B3A0 /* User.swift */; };
+		E1C4C7511E2E6D1B00AFBD4B /* LoginToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4C7501E2E6D1B00AFBD4B /* LoginToken.swift */; };
+		E1C4C7531E2E751700AFBD4B /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C4C7521E2E751700AFBD4B /* KeyChain.swift */; };
 		E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6A81DE63EDA007CCD0C /* Tag.swift */; };
 		E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9F6AA1DE63F00007CCD0C /* Media.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +50,8 @@
 		E17CC6151E1D530A00808163 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginController.swift; path = Controllers/LoginController.swift; sourceTree = "<group>"; };
 		E189E1EA1E1546620029B3A0 /* Visitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Visitor.swift; sourceTree = "<group>"; };
 		E189E1EC1E15467D0029B3A0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1C4C7501E2E6D1B00AFBD4B /* LoginToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginToken.swift; sourceTree = "<group>"; };
+		E1C4C7521E2E751700AFBD4B /* KeyChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		E1E9F6A81DE63EDA007CCD0C /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E1E9F6AA1DE63F00007CCD0C /* Media.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		E9C6DFB44DDE2AFD54CB4679 /* Pods_GlacierScenics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GlacierScenics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,8 @@
 				9BE110851C5D2AB50065964E /* GlacierScenics.plist */,
 				9BE1108A1C5D35AF0065964E /* PhotosManager.swift */,
 				9BE1108C1C5D35E60065964E /* Photo.swift */,
+				E1C4C7501E2E6D1B00AFBD4B /* LoginToken.swift */,
+				E1C4C7521E2E751700AFBD4B /* KeyChain.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -294,11 +300,13 @@
 				E14D36F51E116A12009BC930 /* VisitorCell.swift in Sources */,
 				9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */,
 				E1E9F6AB1DE63F00007CCD0C /* Media.swift in Sources */,
+				E1C4C7511E2E6D1B00AFBD4B /* LoginToken.swift in Sources */,
 				9BE1108D1C5D35E60065964E /* Photo.swift in Sources */,
 				9BE110521C5D27470065964E /* AppDelegate.swift in Sources */,
 				E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */,
 				9BE110821C5D277E0065964E /* PhotoCollectionViewCell.swift in Sources */,
 				E189E1EB1E1546620029B3A0 /* Visitor.swift in Sources */,
+				E1C4C7531E2E751700AFBD4B /* KeyChain.swift in Sources */,
 				E14D36F31E115F4D009BC930 /* VisitorController.swift in Sources */,
 				E189E1ED1E15467D0029B3A0 /* User.swift in Sources */,
 			);
@@ -364,7 +372,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -405,7 +413,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -471,7 +479,7 @@
 				9BE110751C5D27470065964E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		9BE110761C5D27470065964E /* Build configuration list for PBXNativeTarget "GlacierScenics" */ = {
 			isa = XCConfigurationList;
@@ -480,7 +488,7 @@
 				9BE110781C5D27470065964E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

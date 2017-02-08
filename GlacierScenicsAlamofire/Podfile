@@ -12,5 +12,8 @@ target 'GlacierScenics' do
   pod 'FBSDKShareKit'
   pod 'FBSDKCoreKit', '~> 4.16.0'
   pod 'FBSDKLoginKit', '~> 4.16.0'
+  
+  pod 'Chatto', '= 3.0.1'
+  pod 'ChattoAdditions', '= 3.0.1'
 end
 
