@@ -66,11 +66,76 @@
             </objects>
             <point key="canvasLocation" x="-1575" y="572"/>
         </scene>
+        <!--Room-->
+        <scene sceneID="j9o-Q2-0rM">
+            <objects>
+                <viewController id="jgh-nM-aJh" userLabel="Room" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Qh-Ex-Im6"/>
+                        <viewControllerLayoutGuide type="bottom" id="gsC-1w-JAI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KKh-6O-v68">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="1" green="0.17089016069999999" blue="0.2215832304" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="대화방" id="GWI-aI-dkM">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-13"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ch2-I6-UAb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="-1173"/>
+        </scene>
+        <!--Memo-->
+        <scene sceneID="dL5-oV-8h8">
+            <objects>
+                <viewController id="vlc-r8-eHg" userLabel="Memo" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VGu-iB-FU1"/>
+                        <viewControllerLayoutGuide type="bottom" id="HGm-vZ-IoY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ix-LF-lB8">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="메모" id="3HF-g8-kXx">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-13"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7e7-Lu-5dp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-772" y="-1173"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="yKp-gw-C5V">
+            <objects>
+                <tabBarController id="8mU-MF-CBu" userLabel="Home" customClass="TabBarController" customModule="GlacierScenics" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="nEY-mH-TKP"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Hdi-Aq-rJq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vlc-r8-eHg" kind="relationship" relationship="viewControllers" id="QWt-G7-qNe"/>
+                        <segue destination="8L5-FS-Mpl" kind="relationship" relationship="viewControllers" id="Agh-07-wad"/>
+                        <segue destination="jgh-nM-aJh" kind="relationship" relationship="viewControllers" id="o0g-fn-yZX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Odb-p6-b0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-38" y="-366"/>
+        </scene>
         <!--Photo list-->
         <scene sceneID="Jue-sI-vHZ">
             <objects>
                 <collectionViewController id="8L5-FS-Mpl" customClass="PhotosCollectionViewController" customModule="GlacierScenics" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="2bp-rj-tTD">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="2bp-rj-tTD">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="0RI-Q2-BJw">
@@ -85,7 +150,10 @@
                             <outlet property="delegate" destination="8L5-FS-Mpl" id="0In-6w-Egr"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" systemItem="search" id="eG2-DR-WT8"/>
+                    <tabBarItem key="tabBarItem" title="사진" id="eG2-DR-WT8">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="0.0"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-13"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Photo list" id="Aus-XI-qhc"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="xbB-gk-MrS" id="3cZ-Tj-dxh"/>
@@ -101,7 +169,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1060" y="-645"/>
+            <point key="canvasLocation" x="-39" y="-1173"/>
         </scene>
         <!--방문자-->
         <scene sceneID="Xew-L7-VE3">
@@ -120,10 +188,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VisitorCell" id="gsQ-aL-j2r" customClass="VisitorCell" customModule="GlacierScenics" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gsQ-aL-j2r" id="KCe-9q-J22">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2HP-pf-BHU">
@@ -244,7 +312,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VyY-iJ-1HS" id="s8X-u0-imz">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -398,10 +466,10 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VisitorCell" id="zD6-be-NqH" customClass="VisitorCell" customModule="GlacierScenics" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zD6-be-NqH" id="DTj-qG-Ig9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SSV-r8-05j">
@@ -466,7 +534,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8L5-FS-Mpl" kind="relationship" relationship="viewControllers" id="hrg-V3-KGj"/>
+                        <segue destination="8mU-MF-CBu" kind="relationship" relationship="viewControllers" id="q8f-g5-37a"/>
                         <segue destination="NbZ-Bm-Tyb" kind="relationship" relationship="viewControllers" id="6PD-eV-Q5s"/>
                         <segue destination="Usi-Kn-T9x" kind="relationship" relationship="viewControllers" id="Oed-ep-dYk"/>
                         <segue destination="dmH-tO-vwh" kind="relationship" relationship="viewControllers" id="e9V-xL-fAJ"/>
@@ -479,7 +547,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iZb-ph-ZBY"/>
+        <segue reference="e9V-xL-fAJ"/>
         <segue reference="i61-J4-nVX"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="0.17089016069980512" blue="0.22158323039980055" alpha="1" colorSpace="calibratedRGB"/>
 </document>

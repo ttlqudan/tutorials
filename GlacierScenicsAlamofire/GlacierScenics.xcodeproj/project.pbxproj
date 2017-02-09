@@ -18,6 +18,7 @@
 		9BE110891C5D35060065964E /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE110881C5D35060065964E /* PhotosCollectionViewController.swift */; };
 		9BE1108B1C5D35AF0065964E /* PhotosManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1108A1C5D35AF0065964E /* PhotosManager.swift */; };
 		9BE1108D1C5D35E60065964E /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE1108C1C5D35E60065964E /* Photo.swift */; };
+		E140F26C1E4CBE1300BB61E8 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E140F26B1E4CBE1300BB61E8 /* TabBarController.swift */; };
 		E14D36F31E115F4D009BC930 /* VisitorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D36F21E115F4D009BC930 /* VisitorController.swift */; };
 		E14D36F51E116A12009BC930 /* VisitorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14D36F41E116A12009BC930 /* VisitorCell.swift */; };
 		E17CC6161E1D530A00808163 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17CC6151E1D530A00808163 /* LoginController.swift */; };
@@ -48,6 +49,7 @@
 		9BE1108C1C5D35E60065964E /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		BF761A5A7EAFB80A01E4604C /* Pods-GlacierScenics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlacierScenics.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GlacierScenics/Pods-GlacierScenics.debug.xcconfig"; sourceTree = "<group>"; };
 		D15D9A47EF2EC7CAEDC8E7AD /* Pods-GlacierScenics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GlacierScenics.release.xcconfig"; path = "Pods/Target Support Files/Pods-GlacierScenics/Pods-GlacierScenics.release.xcconfig"; sourceTree = "<group>"; };
+		E140F26B1E4CBE1300BB61E8 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E14D36F21E115F4D009BC930 /* VisitorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorController.swift; sourceTree = "<group>"; };
 		E14D36F41E116A12009BC930 /* VisitorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorCell.swift; sourceTree = "<group>"; };
 		E15F484B1E1E7FE700385A02 /* GlacierScenics.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GlacierScenics.entitlements; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				9BE110881C5D35060065964E /* PhotosCollectionViewController.swift */,
 				E14D36F21E115F4D009BC930 /* VisitorController.swift */,
 				E17CC6151E1D530A00808163 /* LoginController.swift */,
+				E140F26B1E4CBE1300BB61E8 /* TabBarController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				E1BB16601E4B6F7D0007AE6D /* FollowData.swift in Sources */,
 				9BE1108D1C5D35E60065964E /* Photo.swift in Sources */,
 				E1BB165E1E4B63050007AE6D /* ProfileView.swift in Sources */,
+				E140F26C1E4CBE1300BB61E8 /* TabBarController.swift in Sources */,
 				9BE110521C5D27470065964E /* AppDelegate.swift in Sources */,
 				E1E9F6A91DE63EDA007CCD0C /* Tag.swift in Sources */,
 				E1BB16621E4B70BB0007AE6D /* Follow.swift in Sources */,
